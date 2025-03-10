@@ -12,7 +12,11 @@ class GildedRose {
             if (!item.name.equals("Aged Brie") && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (item.quality > 0) {
                     if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                        item.quality = item.quality - 1;
+                        if (item.name.startsWith("Conjured")) {
+                            item.quality = item.quality - 2;
+                        } else {
+                            item.quality = item.quality - 1;
+                        }
                     }
                 }
             } else {
@@ -40,11 +44,15 @@ class GildedRose {
                     if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (item.quality > 0) {
                             if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                                item.quality = item.quality - 1;
+                                if (item.name.startsWith("Conjured")) {
+                                    item.quality = item.quality - 2;
+                                } else {
+                                    item.quality = item.quality - 1;
+                                }
                             }
                         }
                     } else {
-                        item.quality = item.quality - item.quality;
+                        item.quality = 0;
                     }
                 } else {
                     if (item.quality < 50) {
